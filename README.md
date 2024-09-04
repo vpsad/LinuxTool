@@ -57,14 +57,14 @@
 #### **<font style="color:rgba(0, 0, 0, 0.85);">4. 宝塔菜单</font>**
 + **<font style="color:rgb(67, 67, 107);">宝塔官方一键挂载硬盘脚本</font>**<font style="color:rgb(67, 67, 107);">：提供官方支持的硬盘挂载脚本，简化硬盘管理过程。</font>
 + **<font style="color:rgb(67, 67, 107);">安装堡塔主机安全系统</font>**<font style="color:rgb(67, 67, 107);">：一键安装堡塔主机安全系统，增强服务器安全性。</font>
-+ **<font style="color:rgb(67, 67, 107);">安装Centos/OpenCloud/Alibaba稳定版</font>**<font style="color:rgb(67, 67, 107);">：支持一键安装各种稳定版的宝塔产品，提升系统稳定性。</font>
++ **<font style="color:rgb(67, 67, 107);">安装Centos/OpenCloud/Alibaba稳定版</font>**<font style="color:rgb(67, 67, 107);">：支持一键安装centos稳定版的宝塔产品，提升系统稳定性。</font>
 + **<font style="color:rgb(67, 67, 107);">安装Ubuntu/Deepin宝塔稳定版</font>**<font style="color:rgb(67, 67, 107);">：为Ubuntu和Deepin操作系统提供宝塔产品的稳定版安装选项。</font>
 + **<font style="color:rgb(67, 67, 107);">安装Debian宝塔稳定版</font>**<font style="color:rgb(67, 67, 107);">：提供Debian操作系统下的宝塔产品稳定版安装选项。</font>
 + **<font style="color:rgb(67, 67, 107);">安装宝塔面板最新正式版</font>**<font style="color:rgb(67, 67, 107);">：一键安装最新的宝塔面板正式版，确保系统的现代化管理需求。</font>
 + **<font style="color:rgb(67, 67, 107);">一键安装宝塔WAF最新版</font>**<font style="color:rgb(67, 67, 107);">：一键安装最新版本的宝塔Web应用防火墙（WAF），增强网站安全防护。</font>
 
 #### **<font style="color:rgba(0, 0, 0, 0.85);">5. 宿主机菜单</font>**
-+ **<font style="color:rgb(67, 67, 107);">一键开启云服务器虚拟化</font>**<font style="color:rgb(67, 67, 107);">：该功能允许用户一键开启云服务器的虚拟化环境，提升服务器资源的利用率和灵活性。</font>
++ **<font style="color:rgb(67, 67, 107);">一键开启云服务器虚拟化</font>**<font style="color:rgb(67, 67, 107);">：该功能允许用户一键开启物理服务器的虚拟化环境，提升服务器资源的利用率和灵活性。</font>
 + **<font style="color:rgb(67, 67, 107);">一键自定义设置SWAP虚拟内存</font>**<font style="color:rgb(67, 67, 107);">：用户可以自定义设置SWAP虚拟内存的大小，优化服务器的内存管理。</font>
 + **<font style="color:rgb(67, 67, 107);">一键关闭SWAP虚拟内存</font>**<font style="color:rgb(67, 67, 107);">：一键禁用SWAP虚拟内存，释放物理内存资源。</font>
 + **<font style="color:rgb(67, 67, 107);">一键开启/关闭KSM内存回收</font>**<font style="color:rgb(67, 67, 107);">：提供开启或关闭KSM（内核空间管理器）的功能，提高系统内存使用效率。</font>
@@ -77,10 +77,8 @@
 + **<font style="color:rgb(67, 67, 107);">流媒体解锁检测脚本</font>**<font style="color:rgb(67, 67, 107);">：检测并显示流媒体解锁状态，帮助用户管理流媒体服务。</font>
 + **<font style="color:rgb(67, 67, 107);">融合怪VPS测试一键脚本</font>**<font style="color:rgb(67, 67, 107);">：提供一键测试VPS性能和稳定性的功能，确保VPS服务的可靠性。</font>
 + **<font style="color:rgb(67, 67, 107);">Linux系统一键换源(默认版)</font>**<font style="color:rgb(67, 67, 107);">：一键更换Linux系统的默认软件源，提高系统更新速度和稳定性。</font>
-+ **<font style="color:rgb(67, 67, 107);">Linux系统一键换源(教育网)</font>**<font style="color:rgb(67, 67, 107);">：为教育网用户提供一键更换系统源的功能，解决教育网访问慢的问题。</font>
++ **<font style="color:rgb(67, 67, 107);">Linux系统一键换源(教育网)</font>**<font style="color:rgb(67, 67, 107);">：一键更换为EDU的软件源，提高系统更新速度和稳定性。</font>
 + **<font style="color:rgb(67, 67, 107);">通用一键安装宝塔最新正式版</font>**<font style="color:rgb(67, 67, 107);">：一键安装最新版本的宝塔面板，简化宝塔产品的安装过程。</font>
-
-
 
 
 ### 使用方法
