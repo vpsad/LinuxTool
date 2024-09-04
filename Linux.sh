@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# 定义颜色代码
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+MAGENTA='\033[0;35m'
+CYAN='\033[0;36m'
+WHITE='\033[0;37m'
+RESET='\033[0m'
 
 
 # 获取服务器IP地址
@@ -14,40 +23,43 @@ show_menu() {
     clear
     local greeting
     greeting=$(get_greeting)
-    echo "Linux工具箱菜单"
-    echo "此脚本完全免费使用，纯净无后门"
-    echo "服务器IP地址: $server_ip"
-    echo "服务器运行时间: $uptime_cn"
-    echo "$greeting"  
-    echo "1. 系统操作菜单（2024/7/7更新）"
-    echo "2. 网络操作菜单（2024/7/7更新）"
-    echo "3. 文件操作菜单（2024/7/7更新）"
-    echo "4. 其他操作菜单（2024/6/7更新）"
-    echo "5. 母鸡超开菜单（2024/6/7更新）"
-    echo "q. 退出"
     echo -e "
 ===================================================
-  工具名称：          \033[1;35mh亚洲云Linux工具\033[0m        
-  工具版本：           \033[1;32mLinuxToolsV1.0.2\033[0m      
-  服务器IP地址:           $server_ip
-  服务器运行时间:           $uptime_cn
+✪  工具名称：${RED}亚洲云Linux工具${RESET}        
+✪  工具版本：${GREEN}V1.0.2${RESET}      
+✪  服务器IP：$server_ip
+✪  运行时间：$uptime_cn
 --------------------[综合菜单]---------------------
-    1. 系统操作菜单
-    2. 网络操作菜单
-    3. 文件操作菜单
-    4. 其他操作菜单
-    5. 母鸡超开菜单           
+
+   1. 系统操作菜单(修改密码、SSH端口、更新系统等)
+   2. 网络操作菜单(开/关ping、检测UDP、绑定IP等)
+   3. 文件操作菜单(挂载硬盘、远程下载文件等)
+   4. 宝塔面板菜单(挂载硬盘、一键安装宝塔产品)
+   5. 宿主机菜单(云服务器不要尝试开启虚拟化)           
+   
 --------------------[快捷功能]---------------------
-6. BBR一键脚本       
-7. 回程路由可视化脚本          
-8. IP质量检测脚本       
-9. 融合怪VPS测试一键脚本         
-10. Linux系统一键换源(默认版)
-11. Linux系统一键换源(教育网)      
+
+   6. BBR一键脚本       
+   7. 回程路由可视化脚本          
+   8. IP质量检测脚本       
+   9. 流媒体解锁检测脚本       
+   10. 融合怪VPS测试一键脚本         
+   11. Linux系统一键换源(默认版)
+   12. Linux系统一键换源(教育网)      
+   13. 通用一键安装宝塔最新正式版
+   
 --------------------[服务器推荐]---------------------
-\e[36m亚洲云 资质齐全老商家 全球20+机房高防大带宽服务器提供商
-官网：https://www.asiayun.com  \e[0m          
+
+${CYAN}亚洲云 资质齐全老商家 全球20+机房高防大带宽服务器
+拥有IDC/ISP/ICP等资质，目前云产品覆盖以下地区：
+大陆地区：北京、上海、广州、深圳、成都、十堰、宁波
+境外地区：香港、美国、台北、东京、首尔、新加坡、雅加达、
+孟买、马尼拉、胡志明市、曼谷、伦敦、圣保罗、迪拜、
+马来西亚、德国、荷兰
+官网：https://www.asiayun.com ${RESET}       
+
 ===================================================
+$greeting
 	"
 }
 
@@ -181,7 +193,28 @@ view_history() {
     exit 0
 }
 
+#BBR一键脚本
+bbryj(){
+    # 使用无限循环来不断地询问用户是否需要继续安装
+    while true; do
+        # 提示用户输入Y(Y/N)，并将输入值存储在变量answer中
+        read -p "Debian类系统无需安装，默认自带，如需继续安装请输入Y(Y/N) " answer
+        # 使用case语句根据用户的输入执行相应的操作
+        case $answer in
+            # 如果用户输入Y或y，则下载并执行tcp.sh脚本
+            [Yy]* ) wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh;;
+            # 如果用户输入N或n，则跳出循环
+            [Nn]* ) break;;
+            # 如果用户输入其他字符，则默认执行下载并执行tcp.sh脚本的操作
+            * ) wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh;;
+        esac
+    done
+}
 
+#流媒体检测脚本
+lmtjc(){
+    bash <(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)
+}
 
 # 清空历史记录
 clear_history() {
@@ -1204,13 +1237,13 @@ do
             while true
             do
                 clear
-                echo "=== 其他选项菜单 ==="
-                echo "1. 一键测试带宽网速"
-                echo "2. 一键测试回程路由"
-                echo "3. 一键安装CentOS宝塔最新版"
-                echo "4. 一键安装Ubuntu宝塔最新版"
-                echo "5. 一键安装Debian宝塔最新版"
-                echo "6. 一键安装彩虹Kangle最新版"
+                echo "=== 宝塔面板菜单 ==="
+                echo "1. 宝塔官方一键挂载硬盘脚本"
+                echo "2. 安装堡塔主机安全系统"
+                echo "3. 安装Centos/OpenCloud/Alibaba稳定版"
+                echo "4. 安装Ubuntu/Deepin宝塔稳定版"
+                echo "5. 安装Debian宝塔稳定版"
+                echo "6. 安装宝塔面板最新正式版"
                 echo "7. 一键安装宝塔WAF最新版"
                 echo "q. 返回上级菜单"
                 echo "===================="
@@ -1218,17 +1251,40 @@ do
                 case $other_choice in
                 
                1)
-                   bash <(wget -qO- https://down.vpsaff.net/linux/speedtest/superbench.sh) --speed;;
+                    while true
+                do
+                    clear
+                    echo "请选择确认并选择您的操作系统"
+                    echo "1. CentOS系统"
+                    echo "2. Ubuntu系统"
+                    echo "3. Debian系统"
+                    echo "q. 返回上级菜单"
+                    read -p "请输入选项: " other_choice
+                    case $other_choice in
+                    
+                    1)
+                    yum install wget -y && wget -O auto_disk.sh http://download.bt.cn/tools/auto_disk.sh && bash auto_disk.sh;;
+                    2)
+                    wget -O auto_disk.sh http://download.bt.cn/tools/auto_disk.sh && sudo bash auto_disk.sh;;
+                    3)
+                    wget -O auto_disk.sh http://download.bt.cn/tools/auto_disk.sh && sudo bash auto_disk.sh;;
+                    q)
+                    break
+                    ;;
+                    esac
+                    done
+                    ;;
+                
                2) 
-                   wget -qO- git.io/besttrace | bash;;  
+                   URL=https://download.bt.cn/bthids/scripts/install_hids.sh && if [ -f /usr/bin/curl ];then curl -sSO "$URL" ;else wget -O install_hids.sh "$URL";fi;bash install_hids.sh;;  
                3) 
-                   yum install -y wget && wget -O install.sh https://download.bt.cn/install/install_6.0.sh && sh install.sh ed8484bec;; 
+                   url=https://download.bt.cn/install/install_lts.sh;if [ -f /usr/bin/curl ];then curl -sSO $url;else wget -O install_lts.sh $url;fi;bash install_lts.sh fe0808632;; 
                4) 
-                   wget -O install.sh https://download.bt.cn/install/install-ubuntu_6.0.sh && sudo bash install.sh ed8484bec;;    
+                   wget -O install.sh https://download.bt.cn/install/install_lts.sh && sudo bash install.sh fe0808632;;    
                5) 
-                   wget -O install.sh https://download.bt.cn/install/install-ubuntu_6.0.sh && bash install.sh ed8484bec;; 
+                   wget -O install.sh https://download.bt.cn/install/install_lts.sh && bash install.sh fe0808632;; 
                6) 
-                   yum -y install wget;wget http://kangle.cccyun.cn/start;sh start;;    
+                   if [ -f /usr/bin/curl ];then curl -sSO https://download.bt.cn/install/install_panel.sh;else wget -O install_panel.sh https://download.bt.cn/install/install_panel.sh;fi;bash install_panel.sh fe0808632;;    
                7) 
                    URL=https://download.bt.cn/cloudwaf/scripts/install_cloudwaf.sh && if [ -f /usr/bin/curl ];then curl -sSO "$URL" ;else wget -O install_cloudwaf.sh "$URL";fi;bash install_cloudwaf.sh;;    
                q)   
@@ -1243,7 +1299,7 @@ do
             while true
             do
                 clear
-                echo "=== 母鸡超开菜单 ==="
+                echo "=== 宿主机菜单 ==="
                 echo "1. 一键开启云服务器虚拟化"
                 echo "2. 一键自定义设置SWAP虚拟内存"
                 echo "3. 一键关闭SWAP虚拟内存"
@@ -1279,8 +1335,33 @@ do
                 read -p "按回车键继续..."
             done
             ;;
+            
+        6)
+            bbryj
+            ;;
+        7)
+            curl https://raw.githubusercontent.com/oneclickvirt/backtrace/main/backtrace_install.sh -sSf | bash && backtrace
+            ;;
+        8)
+            bash <(curl -Ls IP.Check.Place)
+            ;;
+        9)
+            lmtjc
+            ;;
+        10)
+            bash <(wget -qO- bash.spiritlhl.net/ecs)
+            ;;
+        11)
+            bash <(curl -sSL https://linuxmirrors.cn/main.sh)
+            ;;
+        12)
+            bash <(curl -sSL https://linuxmirrors.cn/main.sh) --edu
+            ;;
+        13)
+            if [ -f /usr/bin/curl ];then curl -sSO https://download.bt.cn/install/install_panel.sh;else wget -O install_panel.sh https://download.bt.cn/install/install_panel.sh;fi;bash install_panel.sh fe0808632
+            ;;
         q)
-            echo "再见！"
+            echo "再见！亚洲云见！"
             break
             ;;
         *)
