@@ -26,7 +26,7 @@ show_menu() {
     echo -e "
 ===================================================
 ✪  工具名称：${RED}亚洲云Linux工具${RESET}        
-✪  工具版本：${GREEN}V1.0.2${RESET}      
+✪  工具版本：${GREEN}V1.0.3${RESET}      
 ✪  服务器IP：$server_ip
 ✪  运行时间：$uptime_cn
 --------------------[综合菜单]---------------------
@@ -47,6 +47,8 @@ show_menu() {
    11. Linux系统一键换源(默认版)
    12. Linux系统一键换源(教育网)      
    13. 通用一键安装宝塔最新正式版
+   14. 一键安装1panel面板(国内服务器请先换源)
+   q. 退出脚本
    
 --------------------[服务器推荐]---------------------
 
@@ -1360,7 +1362,37 @@ do
         13)
             if [ -f /usr/bin/curl ];then curl -sSO https://download.bt.cn/install/install_panel.sh;else wget -O install_panel.sh https://download.bt.cn/install/install_panel.sh;fi;bash install_panel.sh fe0808632
             ;;
-        q)
+        14)
+            while true
+            do
+                clear
+                echo "提醒：国内服务器请先换源！否则无法安装docker！"
+                echo "1. 国内服务器安装1panel"
+                echo "2. 海外服务器安装1panel"
+                echo "q. 返回上一页"
+                read -p "请输入选项: " other_choice
+                case $other_choice in
+                
+               1) 
+                   bash <(curl -sSL https://linuxmirrors.cn/docker.sh)
+                   curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sh quick_start.sh
+                   ;;
+                 
+               2) 
+                   curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sh quick_start.sh
+                   ;;
+                        
+               q)   
+                   break
+                   ;;
+                *)
+                   echo "无效的选项，请重新输入"
+                    ;;
+                esac
+                read -p "按回车键继续..."
+            done
+            ;;
+            ;;        q)
             echo "再见！亚洲云见！"
             break
             ;;
