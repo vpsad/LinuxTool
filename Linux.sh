@@ -1392,7 +1392,7 @@ do
                 read -p "按回车键继续..."
             done
             ;;
-            ;;        q)
+        q)
             echo "再见！亚洲云见！"
             break
             ;;
