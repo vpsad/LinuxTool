@@ -9,7 +9,7 @@
 孟买、马尼拉、胡志明市、曼谷、伦敦、圣保罗、迪拜、
 马来西亚、德国、荷兰
 
-![https://www.asiayun.com](https://raw.githubusercontent.com/vpsad/linuxtools/main/sd3ROMZU.webp)(https://www.asiayun.com/)
+[![https://www.asiayun.com](https://raw.githubusercontent.com/vpsad/linuxtools/main/sd3ROMZU.webp)](https://www.asiayun.com/)
 
 ### 亚洲云官网地址
 
