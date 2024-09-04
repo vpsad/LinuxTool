@@ -14,7 +14,9 @@
 [https://www.asiayun.com](https://www.asiayun.com/)
 
 ### 脚本介绍
-<font style="color:rgb(67, 67, 107);">该脚本工具的功能是快速换源，一键安装BBR、宝塔面板等，测试服务器回程线路、IP质量、流媒体解锁以及服务器性能情况、提供多种操作菜单以实现系统、网络、文件传输等功能。以下是具体功能总结：(AI生成)</font>
+<font style="color:rgb(67, 67, 107);">该脚本工具的功能是快速换源，一键安装BBR、宝塔面板等，测试服务器回程线路、IP质量、流媒体解锁以及服务器性能情况、提供多种操作菜单以实现系统、网络、文件传输等功能。以下是具体功能总结：  
+(AI生成的总结，如有错误或遗漏请反馈)
+</font>
 
 #### **<font style="color:rgba(0, 0, 0, 0.85);">1. 系统菜单</font>**
 + **<font style="color:rgb(67, 67, 107);">重启服务器</font>**<font style="color:rgb(67, 67, 107);">：用户可以通过该功能重启服务器，确保系统的正常运行。</font>
@@ -82,7 +84,11 @@
 
 
 ### 使用方法
-
+大陆服务器
+```bash
+curl -L https://gitee.com/krhzj/LinuxTool/raw/main/Linux.sh -o Linux.sh && chmod +x Linux.sh && bash Linux.sh
+```
+境外服务器
 ```bash
 curl -L https://raw.githubusercontent.com/vpsad/LinuxTool/main/Linux.sh -o Linux.sh && chmod +x Linux.sh && bash Linux.sh
 ```
