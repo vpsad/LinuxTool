@@ -82,3 +82,7 @@
 
 
 ### 使用方法
+
+```bash
+curl -L https://raw.githubusercontent.com/vpsad/LinuxTool/main/Linux.sh -o Linux.sh && chmod +x Linux.sh && bash Linux.sh
+```
