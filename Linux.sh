@@ -48,6 +48,7 @@ show_menu() {
    12. Linux系统一键换源(教育网)      
    13. 通用一键安装宝塔最新正式版
    14. 一键安装1panel面板(国内服务器请先换源)
+   15. 一键优化linux系统TCP网络
    q. 退出脚本
    
 --------------------[服务器推荐]---------------------
@@ -1392,8 +1393,11 @@ do
                 read -p "按回车键继续..."
             done
             ;;
+        15)
+            wget http://sh.nekoneko.cloud/tools.sh -O tools.sh && bash tools.sh
+            ;;
         q)
-            echo "再见！亚洲云见！"
+            echo "再见！服务器推荐：www.asiayun.com"
             break
             ;;
         *)
