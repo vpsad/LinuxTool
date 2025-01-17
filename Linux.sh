@@ -1394,7 +1394,7 @@ do
             done
             ;;
 15)
-    tcp_tune() { # 优化TCP窗口
+        # 优化TCP窗口
         # 备份配置文件
         cp /etc/sysctl.conf /etc/sysctl.conf.bak
 
@@ -1456,7 +1456,7 @@ EOF
         fi
 
         echo "TCP 优化完成！"
-    }
+    
     ;;
         q)
             echo "再见！服务器推荐：www.asiayun.com"
