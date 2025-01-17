@@ -26,7 +26,7 @@ show_menu() {
     echo -e "
 ===================================================
 ✪  工具名称：${RED}亚洲云Linux工具${RESET}        
-✪  工具版本：${GREEN}V1.0.4${RESET}      
+✪  工具版本：${GREEN}V1.0.4.1${RESET}      
 ✪  服务器IP：$server_ip
 ✪  运行时间：$uptime_cn
 --------------------[综合菜单]---------------------
@@ -1441,29 +1441,38 @@ EOF
     echo "新配置已添加。"
 
     # 检查并安装 sysctl
-    if ! command -v sysctl &> /dev/null; then
-        echo "sysctl 命令未安装，正在自动安装..."
-        if command -v apt &> /dev/null; then
-            apt update && apt install -y procps
-        elif command -v yum &> /dev/null; then
-            yum install -y procps-ng
-        elif command -v dnf &> /dev/null; then
-            dnf install -y procps-ng
-        else
-            echo "无法自动安装 sysctl，请手动安装 procps 或 procps-ng 包。"
-            exit 1
-        fi
-        echo "sysctl 已安装。"
-    fi
-
-    # 应用配置
-    echo "正在应用配置..."
-    if sysctl -p && sysctl --system; then
-        echo "配置已成功应用。"
+if ! command -v sysctl &> /dev/null; then
+    echo "sysctl 命令未安装，正在自动安装..."
+    if command -v apt &> /dev/null; then
+        apt update && apt install -y procps
+    elif command -v yum &> /dev/null; then
+        yum install -y procps-ng
+    elif command -v dnf &> /dev/null; then
+        dnf install -y procps-ng
     else
-        echo "应用配置失败，请检查 /etc/sysctl.conf 文件。"
+        echo "无法自动安装 sysctl，请手动安装 procps 或 procps-ng 包。"
         exit 1
     fi
+    echo "sysctl 已安装。"
+fi
+
+# 确保 sysctl 在 PATH 中
+export PATH=$PATH:/sbin:/usr/sbin
+
+# 再次检查 sysctl 是否存在
+if ! command -v sysctl &> /dev/null; then
+    echo "错误：sysctl 命令仍未找到，请手动检查系统。"
+    exit 1
+fi
+
+# 应用配置
+echo "正在应用配置..."
+if sysctl -p && sysctl --system; then
+    echo "配置已成功应用。"
+else
+    echo "应用配置失败，请检查 /etc/sysctl.conf 文件。"
+    exit 1
+fi
 
     echo "TCP 优化完成！"
     ;;
