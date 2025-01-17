@@ -48,17 +48,13 @@ show_menu() {
    12. Linux系统一键换源(教育网)      
    13. 通用一键安装宝塔最新正式版
    14. 一键安装1panel面板(国内服务器请先换源)
-   15. 一键优化linux系统TCP网络
+   15. 一键TCP窗口大带宽调优
    q. 退出脚本
    
 --------------------[服务器推荐]---------------------
 
 ${CYAN}亚洲云 资质齐全老商家 全球20+机房高防大带宽服务器
-拥有IDC/ISP/ICP等资质，目前云产品覆盖以下地区：
-大陆地区：北京、上海、广州、深圳、成都、十堰、宁波
-境外地区：香港、美国、台北、东京、首尔、新加坡、雅加达、
-孟买、马尼拉、胡志明市、曼谷、伦敦、圣保罗、迪拜、
-马来西亚、德国、荷兰
+拥有IDC/ISP/ICP等资质，300M大带宽服务器免费领取
 官网：https://www.asiayun.com ${RESET}       
 
 ===================================================
@@ -1394,34 +1390,35 @@ do
             done
             ;;
 15)
-        # 优化TCP窗口
-        # 备份配置文件
-        cp /etc/sysctl.conf /etc/sysctl.conf.bak
+    # 备份配置文件
+    cp /etc/sysctl.conf /etc/sysctl.conf.bak
+    echo "已备份 /etc/sysctl.conf 为 /etc/sysctl.conf.bak"
 
-        # 删除旧配置
-        echo "正在删除旧配置..."
-        sed -i '/net.ipv4.tcp_no_metrics_save/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_ecn/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_frto/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_mtu_probing/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_rfc1337/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_sack/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_fack/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_window_scaling/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_adv_win_scale/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_moderate_rcvbuf/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_rmem/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_wmem/d' /etc/sysctl.conf
-        sed -i '/net.core.rmem_max/d' /etc/sysctl.conf
-        sed -i '/net.core.wmem_max/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.udp_rmem_min/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.udp_wmem_min/d' /etc/sysctl.conf
-        sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
-        sed -i '/net.ipv4.tcp_congestion_control/d' /etc/sysctl.conf
+    # 删除旧配置
+    echo "正在删除旧配置..."
+    sed -i '/net.ipv4.tcp_no_metrics_save/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_ecn/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_frto/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_mtu_probing/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_rfc1337/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_sack/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_fack/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_window_scaling/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_adv_win_scale/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_moderate_rcvbuf/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_rmem/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_wmem/d' /etc/sysctl.conf
+    sed -i '/net.core.rmem_max/d' /etc/sysctl.conf
+    sed -i '/net.core.wmem_max/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.udp_rmem_min/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.udp_wmem_min/d' /etc/sysctl.conf
+    sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
+    sed -i '/net.ipv4.tcp_congestion_control/d' /etc/sysctl.conf
+    echo "旧配置已删除。"
 
-        # 添加新配置
-        echo "正在添加新配置..."
-        cat >> /etc/sysctl.conf << EOF
+    # 添加新配置
+    echo "正在添加新配置..."
+    cat >> /etc/sysctl.conf << EOF
 net.ipv4.tcp_no_metrics_save=1
 net.ipv4.tcp_ecn=0
 net.ipv4.tcp_frto=0
@@ -1441,22 +1438,34 @@ net.ipv4.udp_wmem_min=8192
 net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
 EOF
+    echo "新配置已添加。"
 
-        # 检查 sysctl 命令是否存在
-        if ! command -v sysctl &> /dev/null; then
-            echo "sysctl 命令未安装，请先安装 sysctl。"
+    # 检查并安装 sysctl
+    if ! command -v sysctl &> /dev/null; then
+        echo "sysctl 命令未安装，正在自动安装..."
+        if command -v apt &> /dev/null; then
+            apt update && apt install -y procps
+        elif command -v yum &> /dev/null; then
+            yum install -y procps-ng
+        elif command -v dnf &> /dev/null; then
+            dnf install -y procps-ng
+        else
+            echo "无法自动安装 sysctl，请手动安装 procps 或 procps-ng 包。"
             exit 1
         fi
+        echo "sysctl 已安装。"
+    fi
 
-        # 应用配置
-        echo "应用配置中..."
-        if ! sysctl -p && sysctl --system; then
-            echo "应用配置失败，请检查 /etc/sysctl.conf 文件。"
-            exit 1
-        fi
+    # 应用配置
+    echo "正在应用配置..."
+    if sysctl -p && sysctl --system; then
+        echo "配置已成功应用。"
+    else
+        echo "应用配置失败，请检查 /etc/sysctl.conf 文件。"
+        exit 1
+    fi
 
-        echo "TCP 优化完成！"
-    
+    echo "TCP 优化完成！"
     ;;
         q)
             echo "再见！服务器推荐：www.asiayun.com"
