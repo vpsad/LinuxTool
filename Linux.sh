@@ -1393,9 +1393,71 @@ do
                 read -p "按回车键继续..."
             done
             ;;
-        15)
-            wget http://sh.nekoneko.cloud/tools.sh -O tools.sh && bash tools.sh
-            ;;
+15)
+    tcp_tune() { # 优化TCP窗口
+        # 备份配置文件
+        cp /etc/sysctl.conf /etc/sysctl.conf.bak
+
+        # 删除旧配置
+        echo "正在删除旧配置..."
+        sed -i '/net.ipv4.tcp_no_metrics_save/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_ecn/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_frto/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_mtu_probing/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_rfc1337/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_sack/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_fack/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_window_scaling/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_adv_win_scale/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_moderate_rcvbuf/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_rmem/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_wmem/d' /etc/sysctl.conf
+        sed -i '/net.core.rmem_max/d' /etc/sysctl.conf
+        sed -i '/net.core.wmem_max/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.udp_rmem_min/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.udp_wmem_min/d' /etc/sysctl.conf
+        sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
+        sed -i '/net.ipv4.tcp_congestion_control/d' /etc/sysctl.conf
+
+        # 添加新配置
+        echo "正在添加新配置..."
+        cat >> /etc/sysctl.conf << EOF
+net.ipv4.tcp_no_metrics_save=1
+net.ipv4.tcp_ecn=0
+net.ipv4.tcp_frto=0
+net.ipv4.tcp_mtu_probing=0
+net.ipv4.tcp_rfc1337=0
+net.ipv4.tcp_sack=1
+net.ipv4.tcp_fack=1
+net.ipv4.tcp_window_scaling=1
+net.ipv4.tcp_adv_win_scale=1
+net.ipv4.tcp_moderate_rcvbuf=1
+net.core.rmem_max=33554432
+net.core.wmem_max=33554432
+net.ipv4.tcp_rmem=4096 87380 33554432
+net.ipv4.tcp_wmem=4096 16384 33554432
+net.ipv4.udp_rmem_min=8192
+net.ipv4.udp_wmem_min=8192
+net.core.default_qdisc=fq
+net.ipv4.tcp_congestion_control=bbr
+EOF
+
+        # 检查 sysctl 命令是否存在
+        if ! command -v sysctl &> /dev/null; then
+            echo "sysctl 命令未安装，请先安装 sysctl。"
+            exit 1
+        fi
+
+        # 应用配置
+        echo "应用配置中..."
+        if ! sysctl -p && sysctl --system; then
+            echo "应用配置失败，请检查 /etc/sysctl.conf 文件。"
+            exit 1
+        fi
+
+        echo "TCP 优化完成！"
+    }
+    ;;
         q)
             echo "再见！服务器推荐：www.asiayun.com"
             break
