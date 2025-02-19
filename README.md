@@ -81,10 +81,11 @@
 + **<font style="color:rgb(67, 67, 107);">流媒体解锁检测脚本</font>**<font style="color:rgb(67, 67, 107);">：检测并显示流媒体解锁状态，帮助用户管理流媒体服务。</font>
 + **<font style="color:rgb(67, 67, 107);">融合怪VPS测试一键脚本</font>**<font style="color:rgb(67, 67, 107);">：提供一键测试VPS性能和稳定性的功能，确保VPS服务的可靠性。</font>
 + **<font style="color:rgb(67, 67, 107);">Linux系统一键换源(默认版)</font>**<font style="color:rgb(67, 67, 107);">：一键更换Linux系统的默认软件源，提高系统更新速度和稳定性。</font>
-+ **<font style="color:rgb(67, 67, 107);">Linux系统一键换源(教育网)</font>**<font style="color:rgb(67, 67, 107);">：一键更换为EDU的软件源，提高系统更新速度和稳定性。</font>
++ **<font style="color:rgb(67, 67, 107);">大陆服务器一键安装docker</font>**<font style="color:rgb(67, 67, 107);">：大陆服务器一键安装docker</font>
 + **<font style="color:rgb(67, 67, 107);">通用一键安装宝塔最新正式版</font>**<font style="color:rgb(67, 67, 107);">：一键安装最新版本的宝塔面板，简化宝塔产品的安装过程。</font>
 
 ### 更新日志
+v1.0.4.2 2025年2月19日更新，EDU换源脚本替换为大陆版docker安装脚本
 v1.0.4.1 2025年1月17日更新，优化TCP网络优化脚本
 v1.0.4 2024年12月7日更新，新增TCP网络优化脚本
 v1.0.3 2024年9月4日更新，新增1panel安装功能  
