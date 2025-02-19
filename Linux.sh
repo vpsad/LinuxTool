@@ -26,7 +26,7 @@ show_menu() {
     echo -e "
 ===================================================
 ✪  工具名称：${RED}亚洲云Linux工具${RESET}        
-✪  工具版本：${GREEN}V1.0.4.1${RESET}      
+✪  工具版本：${GREEN}V1.0.4.2${RESET}      
 ✪  服务器IP：$server_ip
 ✪  运行时间：$uptime_cn
 --------------------[综合菜单]---------------------
@@ -45,7 +45,7 @@ show_menu() {
    9. 流媒体解锁检测脚本       
    10. 融合怪VPS测试一键脚本         
    11. Linux系统一键换源(默认版)
-   12. Linux系统一键换源(教育网)      
+   12. 大陆服务器一键安装docker      
    13. 通用一键安装宝塔最新正式版
    14. 一键安装1panel面板(国内服务器请先换源)
    15. 一键TCP窗口大带宽调优
@@ -1354,7 +1354,7 @@ do
             bash <(curl -sSL https://linuxmirrors.cn/main.sh)
             ;;
         12)
-            bash <(curl -sSL https://linuxmirrors.cn/main.sh) --edu
+            bash <(curl -sSL https://linuxmirrors.cn/docker.sh)
             ;;
         13)
             if [ -f /usr/bin/curl ];then curl -sSO https://download.bt.cn/install/install_panel.sh;else wget -O install_panel.sh https://download.bt.cn/install/install_panel.sh;fi;bash install_panel.sh fe0808632
