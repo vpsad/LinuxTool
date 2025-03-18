@@ -1348,7 +1348,7 @@ do
             lmtjc
             ;;
         10)
-            bash <(wget -qO- bash.spiritlhl.net/ecs)
+            curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x ecs.sh && bash ecs.sh
             ;;
         11)
             bash <(curl -sSL https://linuxmirrors.cn/main.sh)
