@@ -25,8 +25,7 @@ show_menu() {
     greeting=$(get_greeting)
     echo -e "
 ===================================================
-✪  工具名称：${RED}亚洲云Linux工具${RESET}        
-✪  工具版本：${GREEN}V1.0.4.2${RESET}      
+✪  工具名称：${RED}亚洲云Linux工具${RESET}            
 ✪  服务器IP：$server_ip
 ✪  运行时间：$uptime_cn
 --------------------[综合菜单]---------------------
