@@ -1,6 +1,6 @@
 # 亚洲云Linux Tools脚本仓库
 
-### 介绍
+## 介绍
 
 亚洲云（Asiayun）成立于2018年，资质齐全老商家，全球20+机房高防大带宽服务器。  
 拥有IDC/ISP/ICP等资质，目前云产品覆盖以下地区：  
@@ -8,13 +8,9 @@
 境外地区：香港、美国、台北、东京、首尔、新加坡、雅加达、孟买、马尼拉、胡志明市、曼谷、伦敦、圣保罗、迪拜、马来西亚、德国、荷兰
 
 [![https://www.asiayun.com](https://raw.githubusercontent.com/vpsad/linuxtools/main/sd3ROMZU.webp)](https://www.asiayun.com/)
+官网：[https://www.asiayun.com](https://www.asiayun.com/) QQ群：[579914954](https://qm.qq.com/q/XfLymc05Uu)
 
-### 官网地址
-
-[https://www.asiayun.com](https://www.asiayun.com/)
-
-### 脚本介绍
-![https://www.asiayun.com](https://raw.githubusercontent.com/vpsad/linuxtools/main/linuxtool.png)
+## 脚本功能
 
 <font style="color:rgb(67, 67, 107);">该脚本工具的功能是快速换源，一键安装BBR、宝塔面板等，测试服务器回程线路、IP质量、流媒体解锁以及服务器性能情况、提供多种操作菜单以实现系统、网络、文件传输等功能。以下是具体功能总结：  
 (AI生成的总结，如有错误或遗漏请反馈)
@@ -84,16 +80,23 @@
 + **<font style="color:rgb(67, 67, 107);">大陆服务器一键安装docker</font>**<font style="color:rgb(67, 67, 107);">：大陆服务器一键安装docker</font>
 + **<font style="color:rgb(67, 67, 107);">通用一键安装宝塔最新正式版</font>**<font style="color:rgb(67, 67, 107);">：一键安装最新版本的宝塔面板，简化宝塔产品的安装过程。</font>
 
-### 更新日志
-v1.0.4.2 2025年2月19日更新，EDU换源脚本替换为大陆版docker安装脚本
-v1.0.4.1 2025年1月17日更新，优化TCP网络优化脚本
-v1.0.4 2024年12月7日更新，新增TCP网络优化脚本
-v1.0.3 2024年9月4日更新，新增1panel安装功能  
-v1.0.2 2024年9月3日更新，融合007开源工具箱，并优化新增多个一键脚本  
-v1.0.1 2021年优化版本，主要优化界面，并更新去除失效脚本  
-v1.0.0 2020年首创版本，功能有：挂载硬盘、安装宝塔面板、离线宝塔面板、BBR一键安装、奈非检测等  
+## 更新日志
+- 2025年6月26日更新，融合怪测试脚本更换为无痕测试脚本，换源及docker脚本更新，去除版本号（因为太懒）
+- v1.0.4.2 2025年2月19日更新，EDU换源脚本替换为大陆版docker安装脚本
+- v1.0.4.1 2025年1月17日更新，优化TCP网络优化脚本
+- v1.0.4 2024年12月7日更新，新增TCP网络优化脚本
+- v1.0.3 2024年9月4日更新，新增1panel安装功能  
+- v1.0.2 2024年9月3日更新，融合007开源工具箱，并优化新增多个一键脚本  
+- v1.0.1 2021年优化版本，主要优化界面，并更新去除失效脚本  
+- v1.0.0 2020年首创版本，功能有：挂载硬盘、安装宝塔面板、离线宝塔面板、BBR一键安装、奈非检测等
 
-### 使用方法
+## 特别感谢
+- LinuxMirrors
+免费开源Linux换源脚本及docker安装脚本
+项目链接：https://github.com/SuperManito/LinuxMirrors
+
+
+## 使用方法
 大陆服务器
 ```bash
 curl -L https://gitee.com/krhzj/LinuxTool/raw/main/Linux.sh -o Linux.sh && chmod +x Linux.sh && bash Linux.sh
