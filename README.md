@@ -106,3 +106,11 @@ curl -L https://ghfast.top/https://raw.githubusercontent.com/vpsad/LinuxTool/mai
 ```bash
 curl -L https://raw.githubusercontent.com/vpsad/LinuxTool/main/Linux.sh -o Linux.sh && chmod +x Linux.sh && bash Linux.sh
 ```
+仅使用Linux换源脚本
+```bash
+bash <(curl -sSL https://imgcache.yyyisp.com/shell/hyjb.sh)
+```
+仅使用docker安装脚本
+```bash
+bash <(curl -sSL https://imgcache.yyyisp.com/shell/docker.sh)
+```
