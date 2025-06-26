@@ -43,7 +43,7 @@ show_menu() {
    7. 回程路由可视化脚本          
    8. IP质量检测脚本       
    9. 流媒体解锁检测脚本       
-   10. 融合怪VPS测试一键脚本         
+   10. NodeQuality无痕测试脚本       
    11. Linux系统一键换源(默认版)
    12. 大陆服务器一键安装docker      
    13. 通用一键安装宝塔最新正式版
@@ -53,9 +53,11 @@ show_menu() {
    
 --------------------[服务器推荐]---------------------
 
-${CYAN}亚洲云 资质齐全老商家 全球20+机房高防大带宽服务器
-拥有IDC/ISP/ICP等资质，300M大带宽服务器免费领取
-官网：https://www.asiayun.com ${RESET}       
+${CYAN}亚洲云 · 香港500M/美国1000M/湖北高防1000M/浙江高防1000M/北京BGP 100M
+资质齐全老商家 全球20+机房高防大带宽服务器，产品覆盖多个大洲
+拥有IDC/ISP/ICP等资质，专做各地大带宽云服务器，诚招代理${RESET}
+\033[93m官网：\033[38;5;39mhttps://www.asiayun.com\033[0m
+\033[93mQQ群：\033[38;5;46m579914954\033[0m
 
 ===================================================
 $greeting
@@ -1348,13 +1350,13 @@ do
             lmtjc
             ;;
         10)
-            curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x ecs.sh && bash ecs.sh
+            bash <(curl -sL https://run.NodeQuality.com)
             ;;
         11)
-            bash <(curl -sSL https://linuxmirrors.cn/main.sh)
+            bash <(curl -sSL https://imgcache.yyyisp.com/shell/hyjb.sh)
             ;;
         12)
-            bash <(curl -sSL https://linuxmirrors.cn/docker.sh)
+            bash <(curl -sSL https://imgcache.yyyisp.com/shell/docker.sh)
             ;;
         13)
             if [ -f /usr/bin/curl ];then curl -sSO https://download.bt.cn/install/install_panel.sh;else wget -O install_panel.sh https://download.bt.cn/install/install_panel.sh;fi;bash install_panel.sh fe0808632
@@ -1371,7 +1373,7 @@ do
                 case $other_choice in
                 
                1) 
-                   bash <(curl -sSL https://linuxmirrors.cn/docker.sh)
+                   bash <(curl -sSL https://imgcache.yyyisp.com/shell/docker.sh)
                    curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sh quick_start.sh
                    ;;
                  
