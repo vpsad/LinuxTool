@@ -91,15 +91,16 @@
 - v1.0.0 2020年首创版本，功能有：挂载硬盘、安装宝塔面板、离线宝塔面板、BBR一键安装、奈非检测等
 
 ## 特别感谢
-- LinuxMirrors
-免费开源Linux换源脚本及docker安装脚本
+- LinuxMirrors<br>
+免费开源Linux换源脚本及docker安装脚本<br>
 项目链接：https://github.com/SuperManito/LinuxMirrors
+- 所有脚本中包含，但未提及的开源项目维护者。
 
 
 ## 使用方法
 大陆服务器
 ```bash
-curl -L https://gitee.com/krhzj/LinuxTool/raw/main/Linux.sh -o Linux.sh && chmod +x Linux.sh && bash Linux.sh
+curl -L https://ghfast.top/https://raw.githubusercontent.com/vpsad/LinuxTool/main/Linux.sh -o Linux.sh && chmod +x Linux.sh && bash Linux.sh
 ```
 境外服务器
 ```bash
